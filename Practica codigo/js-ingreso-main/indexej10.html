@@ -70,11 +70,11 @@
     //*** Definir el proceso
     function principal () {
       let h = entrada("horadec");
-      let hora = Math.floor (h); // math.floor redondea hacia el entero inferior mas proximo
+      let hora = Math.floor (h); // math.floor redondea hacia el entero inferior mas proximo, Math.trunc trunca el nro y queda solo el entero
       let m = ((h - hora) * 60);
       let min = Math.floor (m);
-      let seg = Math.trunc ((m - min) * 60); //Math.trumc trunca el nro y queda solo el entero
-      
+      let s = ((m - min) * 60); 
+      let seg = Number(s.toFixed(2)); //trunca los decimales a 2 despues de la coma
       salida("horas",hora + ' ' + min + ' ' + seg);
     }
     // *************************************************************** //
