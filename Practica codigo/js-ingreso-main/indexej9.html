@@ -50,17 +50,18 @@
     //*** Esto es lo que podes modificar:
 
     //*** Definir las entradas
+    const pi = 3.14159;
     function especificarEntradas () {
       return [
         {
-          nombre: "monto", tipo: "number",
-          etiqueta: "Ingrese monto:",
-          ayuda: "Monto en pesos"
+          nombre: "radio", tipo: "number",
+          etiqueta: "Ingrese radio del silo:",
+          ayuda: "Radio en mts"
         },
         {
-          nombre: "inter", tipo: "number",
-          etiqueta: "Interes: ",
-          ayuda: "Interes mensual, ej 10"
+          nombre: "alt", tipo: "number",
+          etiqueta: "Altura del silo ",
+          ayuda: "Altura en mts"
         }
       ]
     }
@@ -68,17 +69,17 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "Montonew", etiqueta: "Monto + interes:" },
+        { nombre: "volsilo", etiqueta: "Volumen del silo:" },
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      let dinero = entrada("monto");
-      let intmens = entrada("inter");
-      exit = dinero + (dinero*intmens/100);
+      let rad = entrada("radio");
+      let altit = entrada("alt");
+      exit = pi*rad*rad*altit;
       
-      salida("Montonew", exit);
+      salida("volsilo", exit);
     }
     // *************************************************************** //
   </script>
