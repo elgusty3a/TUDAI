@@ -53,14 +53,14 @@
     function especificarEntradas () {
       return [
         {
-          nombre: "A", tipo: "number",
-          etiqueta: "Ingrese A:",
-          ayuda: "numero A"
+          nombre: "monto", tipo: "number",
+          etiqueta: "Ingrese monto:",
+          ayuda: "Monto en pesos"
         },
         {
-          nombre: "B", tipo: "number",
-          etiqueta: "Ingrese B:",
-          ayuda: "numero B"
+          nombre: "inter", tipo: "number",
+          etiqueta: "Interes: ",
+          ayuda: "Interes mensual, ej 10"
         }
       ]
     }
@@ -68,18 +68,17 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "Anew", etiqueta: "Salida A:" },
-        { nombre: "Bnew", etiqueta: "Salida B:" },
+        { nombre: "Montonew", etiqueta: "Monto + interes:" },
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      var C = entrada("A");
-      var D = entrada("B");
+      let dinero = entrada("monto");
+      let intmens = entrada("inter");
+      exit = dinero + (dinero*intmens/100);
       
-      salida("Anew", D);
-      salida("Bnew", C);
+      salida("Montonew", exit);
     }
     // *************************************************************** //
   </script>
