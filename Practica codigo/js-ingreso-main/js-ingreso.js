@@ -2,7 +2,9 @@
  * JS-Ingreso v1.0
  * H.Curti - 2022
  */
-
+/**
+ * Cambiar comentario en GITHUB a JS-Ingreso v1.0 H.Curti - 2022
+ */
 const tipos = {}
 
 function ajustarTipo (nombre, valor) {
