@@ -61,7 +61,7 @@
           nombre: "minutos", tipo: "number",
           etiqueta: "Ingrese minutos:",
           ayuda: "Minutos"
-        }
+        },
         {
           nombre: "segundos", tipo: "float",
           etiqueta: "Ingrese segundos:",
@@ -82,8 +82,10 @@
       var h = entrada("horas");
       var m = entrada("minutos");
       var s = entrada("segundos");
+      let decimalhora = h + ( m/60) + (s/3600);
+      exit = Number(decimalhora.toFixed(4));
       
-      salida("superficie", superficie);
+      salida("horasdec", exit);
     }
     // *************************************************************** //
   </script>
