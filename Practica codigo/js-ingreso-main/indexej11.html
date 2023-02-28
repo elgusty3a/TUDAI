@@ -53,24 +53,19 @@
     function especificarEntradas () {
       return [
         {
-          nombre: "base", tipo: "number",
-          etiqueta: "Ingrese base:",
-          ayuda: "Base del rectangulo"
+          nombre: "horas", tipo: "number",
+          etiqueta: "Ingrese horas:",
+          ayuda: "Horas"
         },
         {
-          nombre: "altura", tipo: "number",
-          etiqueta: "Ingrese altura:",
-          ayuda: "Altura del rectangulo"
-        },
+          nombre: "minutos", tipo: "number",
+          etiqueta: "Ingrese minutos:",
+          ayuda: "Minutos"
+        }
         {
-          nombre: "dia", tipo: "date",
-          etiqueta: "Ingrese fecha:",
-          ayuda: "Fecha de creacion"
-        },
-        {
-          nombre: "vivo", tipo: "boolean",
-          etiqueta: "Seleccione el valor:",
-          ayuda: ""
+          nombre: "segundos", tipo: "float",
+          etiqueta: "Ingrese segundos:",
+          ayuda: "Segundos"
         }
       ]
     }
@@ -78,16 +73,15 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "superficie", etiqueta: "Superficie:" }
+        { nombre: "horasdec", etiqueta: "Horario en formato decimal:" }
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      var base = entrada("base");
-      var altura = entrada("altura");
-
-      var superficie = base * altura;
+      var h = entrada("horas");
+      var m = entrada("minutos");
+      var s = entrada("segundos");
       
       salida("superficie", superficie);
     }
