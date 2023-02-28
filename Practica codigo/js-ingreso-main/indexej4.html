@@ -53,24 +53,19 @@
     function especificarEntradas () {
       return [
         {
-          nombre: "A", tipo: "number",
-          etiqueta: "Ingrese A:",
-          ayuda: "numero A"
+          nombre: "a", tipo: "number",
+          etiqueta: "Ingrese a:",
+          ayuda: "coeficiente a distinto de cero"
         },
         {
-          nombre: "B", tipo: "number",
-          etiqueta: "Ingrese B:",
-          ayuda: "numero B"
+          nombre: "b", tipo: "number",
+          etiqueta: "Ingrese b:",
+          ayuda: "coeficiente b"
         },
         {
-          nombre: "dia", tipo: "date",
-          etiqueta: "Ingrese fecha:",
-          ayuda: "Fecha de creacion"
-        },
-        {
-          nombre: "vivo", tipo: "boolean",
-          etiqueta: "Seleccione el valor:",
-          ayuda: ""
+            nombre: "c", tipo: "number",
+          etiqueta: "Ingrese c:",
+          ayuda: "coeficiente c"
         }
       ]
     }
@@ -78,18 +73,36 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "Anew", etiqueta: "Salida A:" },
-        { nombre: "Bnew", etiqueta: "Salida B:" },
+        { nombre: "X1", etiqueta: "Salida X1:" },
+        { nombre: "X2", etiqueta: "Salida X2:" },
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      var C = entrada("A");
-      var D = entrada("B");
-      
-      salida("Anew", D);
-      salida("Bnew", C);
+      let a = entrada("a")
+      let b = entrada("b");
+      let c = entrada("c");
+      if (a != 0)
+        {
+        denom = 2 * a;
+        raiz = (b*b - 4*a*c);
+        if (raiz < 0)
+          {
+          consola ('no existen raices reales');
+          }
+        else
+          {
+            salida1 = ((-b) + Math.sqrt(raiz))/denom;
+            salida2 = ((-b) - Math.sqrt(raiz))/denom
+            salida("X1", salida1);
+            salida("X2", salida2);
+          }
+        }
+      else
+        {
+        consola ('entrada de coeficiente "a" invalida');
+        }
     }
     // *************************************************************** //
   </script>
