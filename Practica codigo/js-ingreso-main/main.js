@@ -6,3 +6,7 @@ console.log(s);
 
 var result = esprima.parse(s, {tokens: true});
 console.log(result);
+
+/*
+ ! cambiar comentario en GITHUB a main.js del entorno de trabajo
+ */
