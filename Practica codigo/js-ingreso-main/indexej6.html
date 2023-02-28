@@ -50,13 +50,17 @@
     //*** Esto es lo que podes modificar:
 
     //*** Definir las entradas
-    const eur = 3.28;
     function especificarEntradas () {
       return [
         {
-          nombre: "dolares", tipo: "number",
-          etiqueta: "Ingrese monto:",
-          ayuda: "Monto en dolares a convertir"
+          nombre: "A", tipo: "number",
+          etiqueta: "Ingrese A:",
+          ayuda: "numero A"
+        },
+        {
+          nombre: "B", tipo: "number",
+          etiqueta: "Ingrese B:",
+          ayuda: "numero B"
         }
       ]
     }
@@ -64,16 +68,18 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "euros", etiqueta: "Euros:" }
+        { nombre: "Anew", etiqueta: "Salida A:" },
+        { nombre: "Bnew", etiqueta: "Salida B:" },
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      let dollar = entrada("dolares");
-      let convdolleur = dollar * eur;
+      var C = entrada("A");
+      var D = entrada("B");
       
-      salida("euros",dollar +' dolares son: '+ convdolleur+' euros');
+      salida("Anew", D);
+      salida("Bnew", C);
     }
     // *************************************************************** //
   </script>
