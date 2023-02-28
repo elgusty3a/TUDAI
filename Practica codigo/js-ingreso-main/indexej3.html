@@ -50,27 +50,13 @@
     //*** Esto es lo que podes modificar:
 
     //*** Definir las entradas
+    const pie = 3.28;
     function especificarEntradas () {
       return [
         {
-          nombre: "base", tipo: "number",
-          etiqueta: "Ingrese base:",
-          ayuda: "Base del rectangulo"
-        },
-        {
-          nombre: "altura", tipo: "number",
-          etiqueta: "Ingrese altura:",
-          ayuda: "Altura del rectangulo"
-        },
-        {
-          nombre: "dia", tipo: "date",
-          etiqueta: "Ingrese fecha:",
-          ayuda: "Fecha de creacion"
-        },
-        {
-          nombre: "vivo", tipo: "boolean",
-          etiqueta: "Seleccione el valor:",
-          ayuda: ""
+          nombre: "metros", tipo: "number",
+          etiqueta: "Ingrese metros:",
+          ayuda: "Metros a convertir"
         }
       ]
     }
@@ -78,18 +64,16 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "superficie", etiqueta: "Superficie:" }
+        { nombre: "pies", etiqueta: "Pies:" }
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      var base = entrada("base");
-      var altura = entrada("altura");
-
-      var superficie = base * altura;
+      let mts = entrada("metros");
+      let convmtspies = mts * pie;
       
-      salida("superficie", superficie);
+      salida("pies",mts+' metros son: '+ convmtspies+' pies');
     }
     // *************************************************************** //
   </script>
