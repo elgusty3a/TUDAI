@@ -83,18 +83,18 @@
       let a = entrada("a")
       let b = entrada("b");
       let c = entrada("c");
-      if (a != 0)
+      if (a != 0) //**** para asegurarse de que no ingrese un coef a = 0
         {
         denom = 2 * a;
         raiz = (b*b - 4*a*c);
-        if (raiz < 0)
+        if (raiz < 0)    //***mira que el calculo dentro de la raiz no sea un nro negativo
           {
           consola ('no existen raices reales');
           }
         else
           {
             salida1 = ((-b) + Math.sqrt(raiz))/denom;
-            salida2 = ((-b) - Math.sqrt(raiz))/denom
+            salida2 = ((-b) - Math.sqrt(raiz))/denom;
             salida("X1", salida1);
             salida("X2", salida2);
           }
