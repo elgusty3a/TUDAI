@@ -77,13 +77,18 @@
     function principal () {
       var C = entrada("A");
       var D = entrada("B");
-      
-      salida("Anew", D);
-      salida("Bnew", C);
+      var aux = D;
+      /**
+      * ! de linea 80 hasta la linea 85 se puede borrar e intercambiar C y D en salidas
+      */
+      D = C;
+      c = aux;
+      salida("Anew", C);
+      salida("Bnew", D);
     }
     /**
      * ? intercambia entradas a la salida
-     */ 
+     */
     // *************************************************************** //
   </script>
 </body>
