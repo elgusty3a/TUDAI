@@ -84,19 +84,35 @@
 
     //*** Definir el proceso
     function principal () {
-      var i = entrada("lado");
+      let i = entrada("lado");
+      let pivot = 1;
       let sup = i*i;
-      for (let j = 1; j <= i; j++)
+      for (let j = pivot; j < i; j++)   // recorre hacia la derecha
       {
-        let k = i + 1 - j;
-        consola ('('+ j +' ; '+ k +')');
+        //let k = i + 1 - j;
+        consola ('('+ j +' ; '+ pivot +')');
       };
+      for (j = pivot; j <= i; j++)    // recorre hacia abajo
+      {
+        consola ('('+ i +' ; '+ j +')');
+      };
+      for (let j = pivot; j < i; j++)   // recorre hacia la izquierda
+      {
+        k = i - j;
+        consola ('('+ k +' ; '+ i +')');
+      };
+      for (let j = pivot; j < i; j++)   // recorre hacia arriba hasta el punto de partida
+      {
+        k = i - j;
+        consola ('('+ pivot +' ; '+ k +')');
+      };
+
       salida ("superficie", sup);
     }
 /**
  * ? cambiar
  * ! comentario del commit a
- * * Recorre diag sec de cuadr, inter lado cuadr
+ * * Recorre perimetro de un cuadr enter lado
  */
 
     // *************************************************************** //
