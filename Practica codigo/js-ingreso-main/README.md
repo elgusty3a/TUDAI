@@ -2,10 +2,6 @@
 
 Libreria para el ingreso
 
-/**
- !cambiar en GITHUB a README de INGRESO TUDAI
-*/
-
 
 ## Getting started
 
