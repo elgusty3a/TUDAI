@@ -53,9 +53,14 @@
     function especificarEntradas () {
       return [
         {
-          nombre: "lado", tipo: "number",
-          etiqueta: "Largo del lado:",
-          ayuda: "Base del cuadrado"
+          nombre: "nro1", tipo: "number",
+          etiqueta: "N1:",
+          ayuda: "ingrese numero"
+        },
+        {
+          nombre: "nro2", tipo: "number",
+          etiqueta: "N2:",
+          ayuda: "N1 x ingrese N2"
         }
       ]
     }
@@ -63,30 +68,23 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "superficie", etiqueta: "Sup matriz cuadrada:" }
+        { nombre: "multi", etiqueta: "Multiplicacion:" }
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      let i = entrada("lado");
-      let pivot = 1;
-      let sup = i * i;
+      let i = entrada("nro1");
+      let y = entrada("nro2");
+      const pivot = 1;
+      let exit = i;
 
-      /** NOTA
-       * ? en este caso recorre por filas
-       * ? es el mismo codigo que el ej 5
-       * ? pero cambio la forma de mostrar en consola
-       */
-
-      for (let j = pivot; j <= i; j++) //
+      for (let k = pivot; k < y; k++)
         {
-        for (let k = pivot; k <= i; k++)
-          {
-          consola ('(' + k + ' ; ' + j + ')');
-          }
+//        consola (exit);   si habilito comprueba que va sumando en consola
+          exit = exit + i;
         }
-        salida ("superficie", sup);
+        salida ("multi", exit);
       };
 
     // *************************************************************** //
