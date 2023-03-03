@@ -57,28 +57,13 @@
           etiqueta: "Largo del lado:",
           ayuda: "Base del cuadrado"
         }
-/**        {
-          nombre: "altura", tipo: "number",
-          etiqueta: "Ingrese altura:",
-          ayuda: "Altura del rectangulo"
-        },
-        {
-          nombre: "dia", tipo: "date",
-          etiqueta: "Ingrese fecha:",
-          ayuda: "Fecha de creacion"
-        },
-        {
-          nombre: "vivo", tipo: "boolean",
-          etiqueta: "Seleccione el valor:",
-          ayuda: ""
-        */
       ]
     }
 
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "superficie", etiqueta: "Superficie:" }
+        { nombre: "superficie", etiqueta: "Sup matriz cuadrada:" }
       ]
     }
 
@@ -87,8 +72,14 @@
       let i = entrada("lado");
       let pivot = 1;
       let sup = i * i;
-      
-      for (let j = pivot; j <= i; j++) // recorre hacia abajo
+
+      /** NOTA
+       * ? en este caso recorre por filas
+       * ? es el mismo codigo que el ej 5
+       * ? pero cambio la forma de mostrar en consola
+       */
+
+      for (let j = pivot; j <= i; j++) //
         {
         for (let k = pivot; k <= i; k++)
           {
