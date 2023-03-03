@@ -72,6 +72,15 @@
       let i = entrada("lado");
       let pivot = 1;
       let sup = i * i;
+      consola ('Primero recorro por filas');
+      for (let j = pivot; j <= i; j++) //
+        {
+        for (let k = pivot; k <= i; k++)
+          {
+          consola ('(' + k + ' ; ' + j + ')');
+          }
+        };
+      consola ('Ahora recorro por columnas');
       //vamos a recorrer por columna entonces
       for (let j = pivot; j <= i; j++) // varia j que son columnas en el for externo
         {
@@ -79,7 +88,7 @@
           {
           consola ('(' + j + ' ; ' + k + ')');
           }
-        }
+        };
         salida ("superficie", sup);
       };
 
