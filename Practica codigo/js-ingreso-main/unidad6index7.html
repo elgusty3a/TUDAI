@@ -53,14 +53,19 @@
     function especificarEntradas () {
       return [
         {
-          nombre: "nro1", tipo: "number",
-          etiqueta: "N1:",
-          ayuda: "ingrese numero"
+          nombre: "monto", tipo: "float",
+          etiqueta: "Monto:",
+          ayuda: "Cant de dinero"
         },
         {
-          nombre: "nro2", tipo: "number",
-          etiqueta: "N2:",
-          ayuda: "N1 x ingrese N2"
+          nombre: "inter", tipo: "float",
+          etiqueta: "Interes:",
+          ayuda: "ej para 10% ingrese 10"
+        },
+        {
+          nombre: "periodo", tipo: "number",
+          etiqueta: "Periodo:",
+          ayuda: "meses"
         }
       ]
     }
@@ -68,23 +73,29 @@
     //*** Definir las salidas
     function especificarSalidas () {
       return [
-        { nombre: "multi", etiqueta: "Multiplicacion:" }
+        { nombre: "montotal", etiqueta: "Total:" }
       ]
     }
 
     //*** Definir el proceso
     function principal () {
-      let i = entrada("nro1");
-      let y = entrada("nro2");
+      let m = entrada("monto");
+      let i = entrada("inter");
+      let p = entrada("periodo");
+      let inte;
+      let acum = m;
       const pivot = 1;
-      let exit = i;
 
-      for (let k = pivot; k < y; k++)
+      for (let k = pivot; k <= p; k++)
         {
-//        consola (exit);   si habilito comprueba que va sumando en consola
-          exit = exit + i;
+          inte = acum * i / 100;
+          acum = acum + inte;
+          if (k != p)
+          {
+          consola ("periodo "+ k + " acumulado $"+ acum);
+          }
         }
-        salida ("multi", exit);
+        salida ("montotal", "$"+acum);
       };
 
     // *************************************************************** //
