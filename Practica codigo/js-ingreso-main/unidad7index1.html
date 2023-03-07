@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>EXA-Ingreso</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="js-ingreso.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="https://www.exa.unicen.edu.ar">
+      <img src="LogoExactas.png" alt="Logo exactas" height="36">
+    </a>
+    <a class="navbar-brand" href="https://www.exa.unicen.edu.ar">Programa de ingreso</a>
+  </nav>
+  <!-- <header></header> -->
+  <div class="contenedor">
+    <div class="panel-entrada-salida">
+      <section class="entrada card">
+        <div class="card-body">
+          <h5 class="card-title">Entradas</h5>
+          <div id="entradas"></div>
+        </div>
+      </section>
+      <section class="salida card">
+        <div class="card-body">
+          <h5 class="card-title">Salidas</h5>
+          <div id="salidas"></div>
+        </div>
+      </section>
+    </div>
+    <div class="panel-consola card">
+      <div class="tool-bar navbar navbar-dark bg-primary">
+        <button class="btn btn-primary" id="ejecutar">Ejecutar</button>
+        <button class="btn btn-primary" id="mostrar">Mostrar Consola</button>
+        <button class="btn btn-primary" id="ocultar">Ocultar Consola</button>
+        <button class="btn btn-primary" id="limpiar">Limpiar Consola</button>
+      </div>
+      <div id="consola" class="consola"></div>
+    </div>
+  </div>
+  <footer>Facultad de Ciencias Exactas - UNICEN</footer>
+  <script type="text/javascript">
+    //*** Esto es lo que podes modificar:
+
+    //*** Definir las entradas
+    function especificarEntradas () {
+      return [
+        {
+          nombre: "centena", tipo: "number",
+          etiqueta: "Centena:",
+          ayuda: "Centena"
+        },
+        {
+        nombre: "decena", tipo: "number",
+        etiqueta: "Decena:",
+        ayuda: "Decena"
+        },
+        {
+        nombre: "unidad", tipo: "number",
+        etiqueta: "Unidad:",
+        ayuda: "Unidad"
+        },
+      ]
+    }
+
+    //*** Definir las salidas
+    function especificarSalidas () {
+      return [
+        { nombre: "correctos", etiqueta: "Correcta:" },
+        { nombre: "bien", etiqueta: "Bien:" }
+      ]
+    }
+
+//*** creando funcion cantidadCorrectos
+    function cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC){
+      var correctos = 0;
+      if (centena == claveA){
+        correctos++;
+      }
+      if (decena == claveB){
+        correctos++;
+      }
+      if (unidad == claveC){
+        correctos++;
+      }
+      return correctos;
+    };
+
+//*** creando funcion cantidadBien
+function cantidadBien(centena,decena,unidad,claveA,claveB,claveC){
+      var bien = 0;
+      if (claveA == decena) {
+        bien++
+      };
+      if (claveA == unidad) {
+        bien++
+      };
+      if (claveB == centena) {
+        bien++
+      };
+      if (claveB == unidad) {
+        bien++
+      };
+      if (claveC== decena) {
+        bien++
+      };
+      if (claveC == centena) {
+        bien++
+      };
+      return bien;
+    };
+
+    function limpiarConsola () {
+  const domConsola = document.getElementById("consola")
+  domConsola.innerHTML = ''
+    }
+//***Variables globales
+var claveA = Math.floor(Math.random() * 10);
+var claveB = Math.floor(Math.random() * 10);
+var claveC = Math.floor(Math.random() * 10);
+
+
+    //*** Definir el proceso
+    function principal () {
+      var unidad = entrada("unidad");
+      var decena = entrada("decena");
+      var centena = entrada("centena");
+      var correctos = 0;
+      var bien = 0;
+      correctos = cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC);
+      bien = cantidadBien(centena,decena,unidad,claveA,claveB,claveC);
+      limpiarConsola();
+      consola(claveA);
+      consola(claveB);
+      consola(claveC);
+      salida("correctos", "Cantidad de correctos: "+correctos);
+      salida("bien", "Cantidad de bien: "+bien);
+      if (correctos == 3){
+        consola ("GANASTE!!!");
+      };
+
+    }
+/**
+ * ? cambiar
+ * ! comentario del commit a
+ * * juego de claves
+ */
+
+    // *************************************************************** //
+  </script>
+</body>
+
+</html>
