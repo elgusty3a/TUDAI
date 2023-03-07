@@ -96,24 +96,30 @@
 //*** creando funcion cantidadBien
 function cantidadBien(centena,decena,unidad,claveA,claveB,claveC){
       var bien = 0;
-      if (claveA == decena) {
-        bien++
-      };
-      if (claveA == unidad) {
-        bien++
-      };
-      if (claveB == centena) {
-        bien++
-      };
-      if (claveB == unidad) {
-        bien++
-      };
-      if (claveC== decena) {
-        bien++
-      };
-      if (claveC == centena) {
-        bien++
-      };
+      if (centena != claveA){
+        if (claveA == decena) {
+          bien++
+        };
+        if (claveA == unidad) {
+          bien++
+        };
+      }
+      if (decena != claveB){
+        if (claveB == centena) {
+          bien++
+        };
+        if (claveB == unidad) {
+          bien++
+        };
+      }
+      if (unidad != claveC){
+        if (claveC== decena) {
+          bien++
+        };
+        if (claveC == centena) {
+          bien++
+        };
+      }
       return bien;
     };
 
