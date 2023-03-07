@@ -11,9 +11,9 @@ que pida cantidad de columnas, que de una orden de arranque o fin,
 y que tenga una x cantidad de intentos de arranque sino que corte
 '''
 
-colfil = input(f"Ingrese cant de columnas: ")
-cf = int(colfil)
-forma.append (cf)
+colfil = input(f"Ingrese cant de columnas: ") //pide una entrada, un numero como texto
+cf = int(colfil) //pasa de texto a entero
+forma.append (cf) //agrega valor al arreglo forma
 colfil = input(f"Ingrese cant de filas: ")
 cf = int(colfil)
 forma.append (cf)
