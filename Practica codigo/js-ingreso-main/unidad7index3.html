@@ -89,41 +89,41 @@
       let rest;
       let next;
       for (let i = 0; i <= 3; i++){
-        rest = (backup % 10);
-        next = Math.floor(backup/10);
-        backup = next;
-        if (rest == 0){
+        rest = (backup % 10);     //me quedo con el reto de dividir por 10, seria el numero * 2^0
+        next = Math.floor(backup/10);   guardo el numero que voy a dividir por 10 en la proxima iteracion
+        backup = next;          //y aqui guardo el nro a dividir luego
+        if (rest == 0){       //si el numero binario es 0 no hace nada y sigo al proximo
           decimal = decimal;
         } else {
-        decimalpot = rest * potsum(i);
-        decimal = decimal + decimalpot;
+        decimalpot = rest * potsum(i);      //llama a la funcion que saca las potencias de 2
+        decimal = decimal + decimalpot;     //va sumando las potencias mas el decimal que tenia antes
         }
       }
-      return decimal;
+      return decimal;   // devuelve el valor del numero decimal que se mostrara en al funcion principal
     }
 
     //*** Defino funcion potencia
     function potsum(p){
       let pot = p;
       let d=2;
-      if (pot == 0){
+      if (pot == 0){        //si potencia es 0 entonces 2^0=1
         d = 1;
-      } else if (pot == 1){
+      } else if (pot == 1){     //si potencia es 1 entonces 2^1=2 y d queda igual
           d = d;
         }
       else {
-        for (let j = 1 ; j < pot; j++)
+        for (let j = 1 ; j < pot; j++ )   //este bloque cicla las multiplicaciones de 2 saca las potencias
         {
           d = d * 2;
         }
       }
-      return d;
+      return d;   // devuelve el valor de d que se usa en la funcion bindescomp
     }
 
     //*** Definir el proceso
     function principal () {
       let b = entrada("binar");
-      exit = bindescomp(b)
+      exit = bindescomp(b)      //llama a la funcion que descompone el binario
         salida ("decimal", exit);
       };
 
