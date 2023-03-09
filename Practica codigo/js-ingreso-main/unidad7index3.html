@@ -55,23 +55,8 @@
         {
           nombre: "binar", tipo: "number",
           etiqueta: "Nro binario a convertir:",
-          ayuda: "Nro binario de 4 digitos"
+          ayuda: "Nro binario"
         }
-/**        {
-          nombre: "altura", tipo: "number",
-          etiqueta: "Ingrese altura:",
-          ayuda: "Altura del rectangulo"
-        },
-        {
-          nombre: "dia", tipo: "date",
-          etiqueta: "Ingrese fecha:",
-          ayuda: "Fecha de creacion"
-        },
-        {
-          nombre: "vivo", tipo: "boolean",
-          etiqueta: "Seleccione el valor:",
-          ayuda: ""
-        */
       ]
     }
 
@@ -88,15 +73,18 @@
       let decimalpot;
       let rest;
       let next;
-      for (let i = 0; i <= 3; i++){
+      let i = 0;
+      while (backup>0){
         rest = (backup % 10);     //me quedo con el reto de dividir por 10, seria el numero * 2^0
-        next = Math.floor(backup/10);   guardo el numero que voy a dividir por 10 en la proxima iteracion
+        next = Math.floor(backup/10); //  guardo el numero que voy a dividir por 10 en la proxima iteracion
         backup = next;          //y aqui guardo el nro a dividir luego
         if (rest == 0){       //si el numero binario es 0 no hace nada y sigo al proximo
           decimal = decimal;
+          i++;
         } else {
         decimalpot = rest * potsum(i);      //llama a la funcion que saca las potencias de 2
         decimal = decimal + decimalpot;     //va sumando las potencias mas el decimal que tenia antes
+        i++;
         }
       }
       return decimal;   // devuelve el valor del numero decimal que se mostrara en al funcion principal
