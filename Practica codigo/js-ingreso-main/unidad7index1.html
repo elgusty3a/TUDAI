@@ -93,33 +93,49 @@
       return correctos;
     };
 
-//*** creando funcion cantidadBien
-function cantidadBien(centena,decena,unidad,claveA,claveB,claveC){
-      var bien = 0;
+//*** funciones para ver las comparaciones de la entrada de pc y usuario
+    function centenaok(centena,decena,unidad,claveA,claveB,claveC){
+      let bien = 0;
       if (centena != claveA){
-        if (claveA == decena) {
-          bien++
+        if (((centena == claveB)||(claveC == centena)) && ((centena == claveB)&&(claveC == centena))){
+            bien++;
+          } else if ((centena == claveB)||(claveC == centena)){
+            bien++;
+          }
+        }
+        return bien;
+      };
+
+      function decenaok(centena,decena,unidad,claveA,claveB,claveC){
+        let bien = 0;
+        if (decena != claveB){
+        if (((claveA == decena)||(claveC == decena)) && ((claveA == decena)&&(claveC == decena))) {
+            bien++;
+          } else if ((claveA == decena)||(claveC == decena)){
+            bien++;
+          }
+        }
+        return bien;
+      };
+
+        function unidadok(centena,decena,unidad,claveA,claveB,claveC){
+          let bien = 0;
+          if (unidad != claveC){
+            if (((claveA == unidad)||(claveB == unidad)) && ((claveA == unidad)&&(claveB == unidad))) {
+              bien++;
+            } else if ((claveA == unidad)||(claveB == unidad)){
+              bien++;
+            }
+          }
+          return bien;
         };
-        if (claveA == unidad) {
-          bien++
-        };
-      }
-      if (decena != claveB){
-        if (claveB == centena) {
-          bien++
-        };
-        if (claveB == unidad) {
-          bien++
-        };
-      }
-      if (unidad != claveC){
-        if (claveC== decena) {
-          bien++
-        };
-        if (claveC == centena) {
-          bien++
-        };
-      }
+//*** creando funcion cantidadBien
+    function cantidadBien(centena,decena,unidad,claveA,claveB,claveC){
+      var bien = 0;
+      centbien = centenaok(centena,decena,unidad,claveA,claveB,claveC);
+      decbien = decenaok(centena,decena,unidad,claveA,claveB,claveC);
+      unibien = unidadok(centena,decena,unidad,claveA,claveB,claveC);
+      bien = centbien + decbien + unibien;
       return bien;
     };
 
@@ -140,12 +156,28 @@ var claveC = Math.floor(Math.random() * 10);
       var centena = entrada("centena");
       var correctos = 0;
       var bien = 0;
-      correctos = cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC);
-      bien = cantidadBien(centena,decena,unidad,claveA,claveB,claveC);
+      if ((claveA == claveB)&&(claveB == claveC)&&(claveA==claveC)){
+      correctos = cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC)
+      } else {
+        correctos = cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC);
+        if (((claveA == claveB)||(claveB == claveC)||(claveA==claveC))&&(correctos==0)){
+          bien = cantidadBien(centena,decena,unidad,claveA,claveB,claveC) - 1;
+        }
+        //correctos = cantidadCorrectos(centena,decena,unidad,claveA,claveB,claveC);
+        bien = cantidadBien(centena,decena,unidad,claveA,claveB,claveC);
+        }
+        //
       limpiarConsola();
       consola(claveA);
       consola(claveB);
       consola(claveC);
+      if (((centena == decena)&&(decena == unidad)&&(unidad==centena))&&(bien==2)){
+        bien = bien-2;
+      } else if (((centena == decena)||(decena == unidad)||(unidad==centena))&&(correctos==0)){
+        bien = bien -1;
+      } else if (((centena == decena)||(decena == unidad)||(unidad==centena))&&(((correctos==1)&&(bien==1))||(correctos==2)||((correctos==1)&&(bien==2)))){
+        bien = bien -1;
+      }
       salida("correctos", "Cantidad de correctos: "+correctos);
       salida("bien", "Cantidad de bien: "+bien);
       if (correctos == 3){
